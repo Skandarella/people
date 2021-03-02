@@ -1,0 +1,3 @@
+Based on Mobs Redo.
+Adds the possibility to build living villages in your Minetest Game world.
+Trade items for random stuff from your villagers, recruit mounts and warriors.

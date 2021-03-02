@@ -1,0 +1,29 @@
+Guide:
+
+First you should reach a certain level of strength in Minetest, best above stone tech level, if you are playing Single Player or without NPCs to fight for you. 
+I recommend to use 3D Armor.
+Brace yourself for your first contact with the plunderers, normally they come in a pack of melee and range and you can only beat one of them, 
+if you manage to separate a plunderer from the group.
+
+If you are lucky you will be victorious and gain your first item for attracting people. This could be an Anvil, Weaponstand, Feeder, Villager Bed, 
+Mineshaft or First Aid Node.
+
+If you haven't build a building yet, now is the time to come, because you need a wooden floor to place your gathered items on. 
+All 5 default wood types (apple, acacia, pine, aspen, jungle) are suitable for a building floor and will spawn different looking people.
+After your first citizen has spawned, he is trading with you, but wont stay near your building. You first have to “tame” him or her,
+every profession likes and needs different things:
+
+Blacksmith: Farming Dishes
+Farmer: Coal Lumps
+Doctor: Mint Tea
+Miner: Hemp Oil + Hemp Leaves
+Instructor: Gold Ingot
+Warrior: Farming Dishes
+
+After you satisfied your new resident, you can tell him or her to stay at place. If an enemy will raid your town and kill someone, 
+you will find a wooden cross. You can burn it in the furnace, or bury the dead, but beware: Do not forget to bury the citizens 
+in soil which provides the corpse the chance to rot, otherwise, a surprise will occur at night...
+
+To be successful you need to mine a lot of gold and use the trading system wisely, because its based on chance.
+
+There is some more stuff in this mod, but this will not be revealed here, the basics are enough to play successful, the rest should be discovered by yourself.
