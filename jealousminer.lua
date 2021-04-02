@@ -31,7 +31,7 @@ mobs:register_mob("people:jealousminer", {
 		{name = "default:copper_lump", chance = 1, min = 1, max = 1},
 		{name = "people:emblemoftriumph", chance = 7, min = 1, max = 1},
 	},
-	water_damage = 0,
+	water_damage = 5,
 	lava_damage = 4,
 	light_damage = 0,
 	animation = {
@@ -58,7 +58,7 @@ mobs:register_mob("people:jealousminer", {
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:jealousminer",
 	nodes = {"default:stone"},

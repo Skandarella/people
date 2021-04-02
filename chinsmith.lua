@@ -127,7 +127,7 @@ mobs:register_mob("people:chinsmith", {
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:chinsmith",
 	nodes = {"default:aspen_wood"},

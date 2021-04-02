@@ -119,7 +119,7 @@ sounds = {		random = "people_miner",
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:eweminer",
 	nodes = {"default:aspen_wood"},
