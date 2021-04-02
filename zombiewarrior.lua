@@ -59,7 +59,7 @@ mobs:register_mob("people:zombiewarrior", {
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:zombiewarrior",
 	nodes = {"default:cobble", "default:mossycobble", "default:sandstonebrick", "default:dirt_with_snow", "default:dry_dirt", "default:dry_dirt_with_dry_grass", "default:permafrost", "default:permafrost", "default:sand", "default:desert_sand", "default:silver_sand", "default:gravel", "default:snowblock", "default:ice", "default:cave:ice", "default:desert_stone", "default:sandstone", "default:silver_sandstone"},

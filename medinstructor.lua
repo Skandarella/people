@@ -117,7 +117,7 @@ mobs:register_mob("people:medinstructor", {
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:medinstructor",
 	nodes = {"default:wood"},

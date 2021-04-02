@@ -117,7 +117,7 @@ mobs:register_mob("people:papdoctor", {
 	end,
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:papdoctor",
 	nodes = {"default:junglewood"},

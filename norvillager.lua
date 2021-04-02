@@ -67,7 +67,7 @@ mobs:register_mob("people:norvillager", {
 })
 
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:norvillager",
 	nodes = {"default:pine_wood"},

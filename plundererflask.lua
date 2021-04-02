@@ -63,7 +63,7 @@ mobs:register_mob("people:plundererflask", {
 	},
 })
 
-if not mobs.custom_spawn_animal then
+if not mobs.custom_spawn_people then
 mobs:spawn({
 	name = "people:plundererflask",
 	nodes = {"default:cobble", "default:mossycobble", "default:sandstonebrick"},
