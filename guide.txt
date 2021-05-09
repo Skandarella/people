@@ -19,6 +19,7 @@ Doctor: Mint Tea
 Miner: Hemp Oil + Hemp Leaves
 Instructor: Gold Ingot
 Warrior: Farming Dishes
+Villager: Farming Dishes
 
 After you satisfied your new resident, you can tell him or her to stay at place. If an enemy will raid your town and kill someone, 
 you will find a wooden cross. You can burn it in the furnace, or bury the dead, but beware: Do not forget to bury the citizens 
