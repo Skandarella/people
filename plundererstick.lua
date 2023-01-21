@@ -1,3 +1,4 @@
+local S = minetest.get_translator("people")
 
 mobs:register_mob("people:plundererstick", {
 	type = "monster",
@@ -29,6 +30,7 @@ mobs:register_mob("people:plundererstick", {
 	run_velocity = 4,
         walk_chance = 10,
 	runaway = false,
+        stay_near = {{"people:bootynode"}, 5},
 	jump = true,
 	drops = {
 		{name = "people:forge", chance = 7, min = 1, max = 1},
@@ -51,7 +53,11 @@ mobs:register_mob("people:plundererstick", {
 		walk_end = 200,
 		punch_start = 200,
 		punch_end = 300,
-		-- 50-70 is slide/water idle
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	view_range = 15,
 
@@ -60,7 +66,7 @@ mobs:register_mob("people:plundererstick", {
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then return end
 	end,
 })
 
@@ -78,4 +84,4 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("people:plundererstick", ("Plunderer with a Stick"), "aplundererstick.png")
+mobs:register_egg("people:plundererstick", S("Plunderer with a Stick"), "aplundererstick.png")

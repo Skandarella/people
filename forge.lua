@@ -1,5 +1,7 @@
+local S = minetest.get_translator("people")
+
 minetest.register_node("people:forge", {
-    description = "Anvil",
+    description = S"Anvil",
     visual_scale = 0.5,
     mesh = "Forge.b3d",
     tiles = {"textureforge.png"},
@@ -7,6 +9,7 @@ minetest.register_node("people:forge", {
     paramtype = "light",
     paramtype2 = "facedir",
     groups = {choppy = 3},
+    walkable = false,
     drawtype = "mesh",
     collision_box = {
         type = "fixed",

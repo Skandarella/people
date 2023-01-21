@@ -1,3 +1,5 @@
+local S = minetest.get_translator("people")
+
 	minetest.register_decoration({
 		deco_type = "simple",
 		place_on = {"default:cobble","default:mossycobble"},

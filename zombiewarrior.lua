@@ -1,3 +1,5 @@
+local S = minetest.get_translator("people")
+
 mobs:register_mob("people:zombiewarrior", {
 	type = "monster",
 	passive = false,
@@ -30,6 +32,7 @@ mobs:register_mob("people:zombiewarrior", {
         walk_chance = 10,
 	runaway = false,
 	jump = true,
+        stay_near = {{"people:weaponstand"}, 5},
 	drops = {
 	},
 	water_damage = 0,
@@ -46,7 +49,11 @@ mobs:register_mob("people:zombiewarrior", {
 		walk2_end = 300,
 		punch_start = 0,
 		punch_end = 100,
-		-- 50-70 is slide/water idle
+		die_start = 0,
+		die_end = 100,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	view_range = 150,
 
@@ -55,7 +62,7 @@ mobs:register_mob("people:zombiewarrior", {
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then return end
 	end,
 })
 
@@ -74,4 +81,4 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("people:zombiewarrior", ("Zombie"), "azombie.png")
+mobs:register_egg("people:zombiewarrior", S("Zombie"), "azombie.png")

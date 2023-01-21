@@ -1,5 +1,7 @@
+local S = minetest.get_translator("people")
+
 minetest.register_node("people:villagerbed", {
-    description = "Villager Bed",
+    description = S"Villager Bed",
     visual_scale = 1.0,
     mesh = "Villagerbed.b3d",
     tiles = {"texturevillagerbed.png"},
@@ -11,9 +13,9 @@ minetest.register_node("people:villagerbed", {
     collision_box = {
         type = "fixed",
         fixed = {
-            {-1, -0.5, -0.5, 0.9, 0.5, 0.5},
-            --[[{-1, -0.5, -0.5, 0.9, 0.5, 0.5},
-            {-1, -0.5, -0.5, 0.9, 0.5, 0.5}]]
+            {-1, -0.5, -0.5, 0.9, 0.2, 0.5},
+            --[[{-1, -0.5, -0.5, 0.9, 0.2, 0.5},
+            {-1, -0.5, -0.5, 0.9, 0.2, 0.5}]]
         }
     },
     selection_box = {

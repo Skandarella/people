@@ -1,0 +1,29 @@
+Handbuch:
+
+Zunächst sollten Sie in Minetest eine ausreichend hochrangige Ausrüstung(Waffen, Rüstung) erreichen, am besten über dem Stein-Tech-Level, wenn Sie Einzelspieler spielen oder ohne NPCs, die für Sie kämpfen.
+Ich empfehle die Verwendung von 3D Armor.
+Mach dich bereit für deinen ersten Kontakt mit den Plünderern! Normalerweise kommen sie in einer Gruppe aus Nah- und Fernkampf und du kannst nur einen von ihnen besiegen.
+Dies ist am einfachsten, wenn es Ihnen gelingt, einen Plünderer von der Gruppe zu trennen.
+
+Wenn Sie Glück haben, werden Sie siegreich sein und Ihren ersten Gegenstand erhalten, um Menschen/Dorfbewohner anzuziehen. Dies könnte ein Amboss, ein Waffenständer, eine Futterstelle, ein Dorfbewohnerbett,
+Minenschacht oder ein Erste-Hilfe-Knotenpunkt sein.
+
+Wenn Sie noch kein Gebäude gebaut haben, ist es jetzt an der Zeit, denn Sie brauchen einen Holzboden, auf dem Sie Ihre gesammelten Gegenstände platzieren können.
+Alle 5 Standardholzarten (Apfel, Akazie, Kiefer, Espe, Dschungel) eignen sich für einen Gebäudeboden und bringen unterschiedlich aussehende Menschen hervor.
+Nachdem Ihr erster Bürger gespawnt ist, handelt er mit Ihnen, bleibt aber nicht in der Nähe Ihres Gebäudes. Sie müssen ihn oder sie zuerst „zähmen“. Dafür müssen
+sie Rohstoffe und andere Gegenstände opfern.
+Jeder Beruf mag und braucht andere Dinge:
+
+Schmied: Landwirtschaftliche Gerichte
+Bauer: Kohlenklumpen
+Arzt: Pfefferminztee
+Miner: Hanföl + Hanfblätter
+Lehrer: Goldbarren
+Krieger: Landwirtschaftliche Gerichte
+Dorfbewohner: Landwirtschaftliche Gerichte
+
+Nachdem Sie Ihren neuen Bewohner zufrieden gestellt haben, können Sie ihm oder ihr sagen, dass er(sie an Ort und Stelle bleiben soll. Wenn ein Feind deine Stadt überfällt und jemanden tötet,
+werden Sie ein Holzkreuz finden. Sie können es im Ofen verbrennen oder die Toten begraben, aber Vorsicht: Vergessen Sie nicht, die Bürger
+in Erde zu begraben, die der Leiche Gelegenheit zum Verrotten gibt, sonst gibt es des Nachts eine Überraschung...
+
+Um erfolgreich zu sein, müssen Sie viel Gold abbauen und das Handelssystem mit Bedacht einsetzen, da es auf Zufall basiert.

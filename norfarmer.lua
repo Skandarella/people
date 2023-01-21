@@ -1,9 +1,9 @@
 
-local S = mobs.intllib
+local S = minetest.get_translator("people")
 
 
 mobs.norfarmer_drops = {
-"people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:ridehorse"
+"people:dog", "people:goat", "people:dogfoodsack", "people:ridepig", "people:ridehorse", "people:plough"
 }
 
 mobs:register_mob("people:norfarmer", {
@@ -34,12 +34,13 @@ mobs:register_mob("people:norfarmer", {
 		death = "people_femaledeath",
 		distance = 10,
 },
-	walk_velocity = 1,
+	walk_velocity = 1.5,
 	run_velocity = 2,
 	stepheight = 1,
 	fear_height = 2,
 	jump = true,
         jump_height = 3,
+        stay_near = {{"people:feeder", "people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 4},
 	drops = {		{name = "people:farmergrave", chance = 1, min = 1, max = 1},
 	},
 	water_damage = 1,
@@ -56,12 +57,17 @@ mobs:register_mob("people:norfarmer", {
 		stand_end = 100,
 		stand2_start = 100,
 		stand2_end = 200,
-		walk_speed = 50,
+		walk_speed = 80,
 		walk_start = 300,
 		walk_end = 400,
 		punch_speed = 100,
 		punch_start = 200,
 		punch_end = 300,
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	-- right clicking with raw meat will give Igor more health
 	on_rightclick = function(self, clicker)
@@ -69,7 +75,7 @@ mobs:register_mob("people:norfarmer", {
 		-- feed to heal npc
 		if mobs:feed_tame(self, clicker, 8, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, nil, 5, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then return end
 
 		local item = clicker:get_wielded_item()
 		local name = clicker:get_player_name()

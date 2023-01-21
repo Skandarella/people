@@ -1,3 +1,5 @@
+local S = minetest.get_translator("people")
+
 
 -- Load support for intllib.
 local MP = minetest.get_modpath(minetest.get_current_modname())
@@ -37,6 +39,11 @@ mobs:register_mob("people:ridereindeer", {
 		walk_end = 300,
 		run_start = 200,
 		run_end = 300,
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	textures = {
 		{"textureridereindeer.png"}, 
@@ -48,11 +55,12 @@ mobs:register_mob("people:ridereindeer", {
 	walk_chance = 50,
         walk_velocity = 1.5,
 	view_range = 5,
-	follow = {"default:apple", "default:permafrost_with_moss", "ethereal:snowygrass", "ethereal:crystalgrass", "default:dry_shrub ", "default:grass_1", "ethereal:dry_shrub", "farming:seed_wheat", "farming:seed_rye", "default:junglegrass"},
+	follow = {"default:apple", "default:permafrost_with_moss", "ethereal:snowygrass", "ethereal:crystalgrass", "default:dry_shrub ", "default:grass_1", "ethereal:dry_shrub", "farming:seed_wheat", "farming:seed_rye", "default:junglegrass", "default:dry_grass_1", "default:dry_grass_2", "default:dry_grass_3", "default:grass_1", "default:grass_2", "default:grass_3", "default:grass_4", "default:grass_5", "default:marram_grass_1", "default:marram_grass_2", "default:marram_grass_3", "default:coldsteppe_grass_1", "default:coldsteppe_grass_2", "default:coldsteppe_grass_3", "default:coldsteppe_grass_4", "default:coldsteppe_grass_5", "default:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass", "group:normal_grass"},
 	passive = true,
 	hp_min = 35,
 	hp_max = 75,
 	armor = 100,
+        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "farming:straw"}, 5},
 	lava_damage = 5,
 	fall_damage = 5,
 	water_damage = 0,
@@ -210,7 +218,7 @@ mobs:register_mob("people:ridereindeer", {
 		end
 
 		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		if mobs:capture_mob(self, clicker, 25, 0, 25, false, nil) then return end
 	end,
 })
 

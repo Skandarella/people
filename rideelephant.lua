@@ -1,3 +1,4 @@
+local S = minetest.get_translator("people")
 
 -- Load support for intllib.
 local MP = minetest.get_modpath(minetest.get_current_modname())
@@ -35,6 +36,11 @@ mobs:register_mob("people:rideelephant", {
 		walk_end = 200,
 		run_start = 101,
 		run_end = 200,
+		die_start = 0,
+		die_end = 100,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	textures = {
 		{"texturerideelephant.png"}, 
@@ -46,9 +52,11 @@ mobs:register_mob("people:rideelephant", {
 	walk_chance = 60,
         walk_velocity = 1.5,
 	view_range = 10,
+        knock_back = false,
+        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "farming:straw"}, 5},
 	follow = {
 		"farming:wheat", "default:apple", "farming:oat",
-		"farming:barley", "farming:corn"},
+		"farming:barley", "farming:corn", "default:dry_grass_1", "default:dry_grass_2", "default:dry_grass_3", "default:grass_1", "default:grass_2", "default:grass_3", "default:grass_4", "default:grass_5", "default:marram_grass_1", "default:marram_grass_2", "default:marram_grass_3", "default:coldsteppe_grass_1", "default:coldsteppe_grass_2", "default:coldsteppe_grass_3", "default:coldsteppe_grass_4", "default:coldsteppe_grass_5", "default:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "farming:melon_8", "farming:pumpkin_8", "ethereal:strawberry", "farming:blackberry", "naturalbiomes:blackberry", "naturalbiomes:cowberry", "naturalbiomes:banana", "naturalbiomes:banana_bunch", "farming:blueberries", "ethereal:orange", "livingdesert:figcactus_fruit", "livingfloatlands:paleojungle_clubmoss_fruit", "ethereal:banana", "livingdesert:date_palm_fruits", "farming:melon_slice", "naturalbiomes:wildrose", "naturalbiomes:banana", "group:grass", "group:normal_grass"},
 	passive = true,
 	hp_min = 100,
 	hp_max = 400,
@@ -216,7 +224,7 @@ mobs:register_mob("people:rideelephant", {
 		end
 
 		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		if mobs:capture_mob(self, clicker, 0, 0, 25, false, nil) then return end
 	end,
 })
 

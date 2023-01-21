@@ -1,5 +1,7 @@
+local S = minetest.get_translator("people")
+
 minetest.register_node("people:firstaidnode", {
-	description = "First Aid Node",
+	description = S"First Aid Node",
 	tiles = {
 		"people_firstaidnode_top.png",
 		"people_firstaidnode_bottom.png",

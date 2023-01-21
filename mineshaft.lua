@@ -1,5 +1,7 @@
+local S = minetest.get_translator("people")
+
 minetest.register_node("people:mineshaft", {
-    description = "Mineshaft",
+    description = S"Mineshaft",
     visual_scale = 1.0,
     mesh = "Mineshaft.b3d",
     tiles = {"texturemineshaft.png"},

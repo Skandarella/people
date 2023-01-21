@@ -1,3 +1,4 @@
+local S = minetest.get_translator("people")
 
 mobs:register_mob("people:plundererflask", {
 	-- animal, monster, npc
@@ -36,6 +37,7 @@ mobs:register_mob("people:plundererflask", {
 	run_velocity = 3,
         walk_chance = 10,
 	jump = true,
+        stay_near = {{"people:bootynode"}, 5},
 	drops = {
 		{name = "people:forge", chance = 7, min = 1, max = 1},
 		{name = "people:feeder", chance = 7, min = 1, max = 1},
@@ -60,6 +62,11 @@ mobs:register_mob("people:plundererflask", {
 		run_start = 100,		run_end = 200,
 		shoot_start = 200,		shoot_end = 300,
                 speed_shoot = 55,
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 })
 
@@ -77,7 +84,7 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("people:plundererflask", "Plunderer with Flask", "aplundererflask.png")
+mobs:register_egg("people:plundererflask", S"Plunderer with Flask", "aplundererflask.png")
 
 mobs:register_arrow("people:flask", {
 	visual = "sprite",

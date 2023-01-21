@@ -1,6 +1,8 @@
+local S = minetest.get_translator("people")
+
 	mobs:register_mob("people:goat", {
 		stay_near = {"farming:straw", 10, "people:feeder", 10},
-		stepheight = 3,
+		stepheight = 1,
 		type = "animal",
 		passive = false,
 	        damage = 4,
@@ -21,11 +23,11 @@
 },
 		walk_velocity = 1,
 		run_velocity = 2,
-                walk_chance = 10,
 		runaway = true,
 		jump = true,
 		jump_height = 3,
 		pushable = true,
+        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "farming:straw"}, 5},
 		drops = {
 			{name = "people:mutton_raw", chance = 1, min = 1, max = 2},
 			{name = "wool:white", chance = 1, min = 1, max = 2},
@@ -38,20 +40,20 @@
 			speed_run = 80,
 			stand_start = 0,
 			stand_end = 100,
+			walk_speed = 90,
 			walk_start = 100,
 			walk_end = 200,
 			punch_start = 200,
 			punch_end = 300,
-
-			die_start = 1, -- we dont have a specific death animation so we will
-			die_end = 2, --   re-use 2 standing frames at a speed of 1 fps and
-			die_speed = 1, -- have mob rotate when dying.
-			die_loop = false,
-			die_rotate = true,
-		},
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
+	},
 		follow = {
 			"farming:wheat", "default:grass_1", "farming:barley",
-			"farming:oat", "farming:rye"
+			"farming:oat", "farming:rye", "default:dry_grass_1", "default:dry_grass_2", "default:dry_grass_3", "default:grass_1", "default:grass_2", "default:grass_3", "default:grass_4", "default:grass_5", "default:marram_grass_1", "default:marram_grass_2", "default:marram_grass_3", "default:coldsteppe_grass_1", "default:coldsteppe_grass_2", "default:coldsteppe_grass_3", "default:coldsteppe_grass_4", "default:coldsteppe_grass_5", "default:coldsteppe_grass_6", "naturalbiomes:savanna_grass1", "naturalbiomes:savanna_grass2", "naturalbiomes:savanna_grass3", "naturalbiomes:outback_grass1", "naturalbiomes:outback_grass2", "naturalbiomes:outback_grass3", "naturalbiomes:outback_grass4", "naturalbiomes:outback_grass5", "naturalbiomes:outback_grass6", "naturalbiomes:med_grass1", "naturalbiomes:med_grass2", "naturalbiomes:heath_grass1", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:alpine_grass1", "naturalbiomes:alpine_grass2", "naturalbiomes:heath_grass2", "naturalbiomes:heath_grass3", "naturalbiomes:", "naturalbiomes:", "naturalbiomes:bushland_grass", "naturalbiomes:bushland_grass2", "naturalbiomes:bushland_grass3", "naturalbiomes:bushland_grass4", "naturalbiomes:bushland_grass5", "naturalbiomes:bushland_grass6", "naturalbiomes:bushland_grass7", "group:grass", "group:normal_grass"
 		},
 		view_range = 8,
 		replace_rate = 10,
@@ -59,7 +61,7 @@
 			{"group:grass", "air", -1},
 			{"default:dirt_with_grass", "default:dirt", -2}
 		},
-		fear_height = 4,
+		fear_height = 2,
 		on_replace = function(self, pos, oldnode, newnode)
 
 			self.food = (self.food or 0) + 1
@@ -143,17 +145,17 @@
 			if mobs:protect(self, clicker) then return end
 
 			--are we capturing?
-			if mobs:capture_mob(self, clicker, 30, 50, 100, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 15, 0, 25, false, nil) then return end
 		end
 	})
 
-mobs:register_egg("people:goat",  ("Goat"), "agoat.png")
+mobs:register_egg("people:goat",  S("Goat"), "agoat.png")
 
 mobs:alias_mob("people:goat", "people:goat") -- compatibility
 
 -- raw mutton
 minetest.register_craftitem(":people:mutton_raw", {
-	description = ("Raw Mutton"),
+	description = S("Raw Mutton"),
 	inventory_image = "people_mutton_raw.png",
 	on_use = minetest.item_eat(2),
 	groups = {food_meat_raw = 1, food_mutton_raw = 1, flammable = 2},
@@ -161,7 +163,7 @@ minetest.register_craftitem(":people:mutton_raw", {
 
 -- cooked mutton
 minetest.register_craftitem(":people:mutton_cooked", {
-	description = ("Cooked Mutton"),
+	description = S("Cooked Mutton"),
 	inventory_image = "people_mutton_cooked.png",
 	on_use = minetest.item_eat(6),
 	groups = {food_meat = 1, food_mutton = 1, flammable = 2},

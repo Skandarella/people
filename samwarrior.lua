@@ -1,5 +1,5 @@
 
-local S = mobs.intllib
+local S = minetest.get_translator("people")
 
 -- Npc by TenPlus1
 
@@ -45,11 +45,12 @@ mobs:register_mob("people:samwarrior", {
 	water_damage = 0,
 	lava_damage = 2,
 	light_damage = 0,
-	follow = {"farming:turkish_delight", "farming:garlic_bread", "farming:donut", "farming:donut_chocolate", "farming:donut_apple", "farming:porridge", "farming:jaffa_cake", "farming:apple_pie", "farming:spaghetti", "farming:burger", "farming:bibimbap"},
+	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
 	view_range = 12,
 	owner = "",
 	order = "follow",
 	fear_height = 3,
+        stay_near = {{"people:weaponstand", "people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 5},
 	animation = {
 		speed_normal = 50,
 		stand_start = 0,
@@ -62,6 +63,11 @@ mobs:register_mob("people:samwarrior", {
 		shoot_start = 300,
 		shoot_speed = 80,
 		shoot_end = 400,
+		die_start = 300,
+		die_end = 400,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 
 	on_rightclick = function(self, clicker)
@@ -70,7 +76,7 @@ mobs:register_mob("people:samwarrior", {
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 
 		-- capture npc with net or lasso
-		if mobs:capture_mob(self, clicker, nil, 5, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 15, 25, false, nil) then return end
 
 		-- protect npc with mobs:protector
 		if mobs:protect(self, clicker) then return end

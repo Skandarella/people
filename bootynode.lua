@@ -1,5 +1,7 @@
+local S = minetest.get_translator("people")
+
 minetest.register_node("people:bootynode", {
-	description = "Booty",
+	description = S"Booty",
 	tiles = {
 		"people_bootynode_top.png",
 		"people_bootynode_bottom.png",

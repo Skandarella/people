@@ -1,3 +1,4 @@
+local S = minetest.get_translator("people")
 
 -- Load support for intllib.
 local MP = minetest.get_modpath(minetest.get_current_modname())
@@ -35,6 +36,11 @@ mobs:register_mob("people:ridepig", {
 		walk_end = 200,
 		run_start = 200,
 		run_end = 300,
+		die_start = 100,
+		die_end = 200,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	textures = {
 		{"textureridepig.png"}, 
@@ -42,10 +48,11 @@ mobs:register_mob("people:ridepig", {
 	},
 	fear_height = 3,
 	runaway = true,
+        knock_back = false,
 	fly = false,
 	walk_chance = 60,
 	view_range = 10,
-follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:melon_slice", "farming:carrot", "farming:seed_rice", "farming:corn"},
+follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:melon_slice", "farming:carrot", "farming:seed_rice", "farming:corn", "farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad", "farming:corn_cob", "farming:seed_hemp", "farming:seed_barley", "farming:seed_oat", "farming:seed_cotton", "farming:seed_sunflower", "farming:seed_wheat", "farming:seed_rye", "naturalbiomes:coconut", "naturalbiomes:coconut_slice", "naturalbiomes:hazelnut", "naturalbiomes:hazelnut_cracked", "farming:sunflower_seeds_toasted", "livingfloatlands:roasted_pine_nuts", "livingfloatlands:giantforest_oaknut", "livingfloatlands:giantforest_oaknut_cracked", "livingfloatlands:coldsteppe_pine3_pinecone", "livingfloatlands:coldsteppe_pine_pinecone", "livingfloatlands:coldsteppe_pine2_pinecone"},
 	passive = true,
 	hp_min = 60,
 	hp_max = 100,
@@ -53,6 +60,7 @@ follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:m
 	lava_damage = 5,
 	fall_damage = 5,
 	water_damage = 1,
+        stay_near = {{"people:feeder", "marinara:reed_bundle", "naturalbiomes:reed_bundle", "farming:straw"}, 5},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "people_pig",
@@ -213,7 +221,7 @@ follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:m
 		end
 
 		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		if mobs:capture_mob(self, clicker, 25, 0, 25, false, nil) then return end
 	end,
 })
 
