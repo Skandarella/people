@@ -7,10 +7,10 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:afrwarrior", {
 	type = "npc",
 	passive = false,
-	damage = 8,
+	damage = 16,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
-	dogshoot_count_max = 12, -- shoot for 10 seconds
+	dogshoot_count_max = 12, -- shoot for 12 seconds
 	dogshoot_count2_max = 3, -- dogfight for 3 seconds
 	shoot_interval = 1.5,
 	arrow = "people:spearfly",
@@ -19,9 +19,9 @@ mobs:register_mob("people:afrwarrior", {
 	attack_npcs = false,
 	owner_loyal = true,
 	pathfinding = true,
-	hp_min = 25,
+	hp_min = 100,
 	hp_max = 125,
-	armor = 100,
+	armor = 80,
 	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
 	visual = "mesh",
 	mesh = "Warrior.b3d",
@@ -104,6 +104,21 @@ mobs:register_mob("people:afrwarrior", {
 				minetest.chat_send_player(name, S("Warrior will follow you."))
 			end
 		end
+	end,
+
+	do_punch = function(self, hitter,
+					    time_from_last_punch,
+						tool_capabilities,
+						direction)
+
+		-- Prevent friendly fire from killing each other :)
+		local entity = hitter:get_luaentity()
+
+		if entity == "people:afrwarrior" then
+			return false
+		end
+
+		return true
 	end,
 })
 

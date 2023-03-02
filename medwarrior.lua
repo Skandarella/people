@@ -7,7 +7,7 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:medwarrior", {
 	type = "npc",
 	passive = false,
-	damage = 8,
+	damage = 16,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
 	dogshoot_count_max = 12, -- shoot for 10 seconds
@@ -19,7 +19,7 @@ mobs:register_mob("people:medwarrior", {
 	attack_npcs = false,
 	owner_loyal = true,
 	pathfinding = true,
-	hp_min = 25,
+	hp_min = 100,
 	hp_max = 125,
 	armor = 100,
 	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
@@ -49,7 +49,7 @@ mobs:register_mob("people:medwarrior", {
 	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
 	view_range = 12,
 	owner = "",
-	order = "follow",
+	order = "stand",
 	fear_height = 3,
 	animation = {
 		speed_normal = 50,
@@ -69,6 +69,21 @@ mobs:register_mob("people:medwarrior", {
 		die_loop = false,
 		die_rotate = true,
 	},
+
+	do_punch = function(self, hitter,
+					    time_from_last_punch,
+						tool_capabilities,
+						direction)
+
+		-- Prevent friendly fire from killing each other :)
+		local entity = hitter:get_luaentity()
+
+		if entity == "people:medwarrior" then
+			return false
+		end
+
+		return true
+	end,
 
 	on_rightclick = function(self, clicker)
 
@@ -117,7 +132,7 @@ mobs:register_arrow("people:spearfly", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
 	textures = {"spearfly.png"},
-	velocity = 12,
+	velocity = 8,
 	drop = true,
 
 	hit_player = function(self, player)
