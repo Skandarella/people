@@ -7,7 +7,7 @@ mobs:register_mob("people:plundererflask", {
 	passive = false,
 	step_height = 2,
 	fear_height = 4,
-	damage = 8,
+	damage = 10,
 	attack_type = "shoot",
 	shoot_interval = 1,
 	arrow = "people:flask",

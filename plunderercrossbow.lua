@@ -3,18 +3,18 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:plunderercrossbow", {
 	-- animal, monster, npc
 	type = "monster",
-	-- aggressive, shoots shuriken
+	-- aggressive, shoots bolts
 	passive = false,
 	step_height = 2,
 	fear_height = 4,
-	damage = 7,
+	damage = 8,
 	attack_type = "shoot",
 	shoot_interval = 2,
 	arrow = "people:bolt",
 	shoot_offset = 2,
 	attacks_monsters = false,
 	-- health & armor
-	hp_min = 30, hp_max = 50, armor = 100,
+	hp_min = 35, hp_max = 70, armor = 130,
 	-- textures and model
 	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
 	visual = "mesh",
@@ -52,15 +52,20 @@ mobs:register_mob("people:plunderercrossbow", {
 	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
-	view_range = 15,
+	view_range = 20,
 	-- model animation
 	animation = {
-		speed_normal = 70,		speed_run = 100,
+		speed_normal = 70,		
+                speed_run = 100,
 		stand_speed = 50,
-		stand_start = 0,		stand_end = 100,
-		walk_start = 100,		walk_end = 200,
-		run_start = 100,		run_end = 200,
-		shoot_start = 200,		shoot_end = 300,
+		stand_start = 0,		
+                stand_end = 100,
+		walk_start = 100,		
+                walk_end = 200,
+		run_start = 100,		
+                run_end = 200,
+		shoot_start = 200,		
+                shoot_end = 300,
                 speed_shoot = 55,
 		die_start = 200,
 		die_end = 300,
@@ -68,6 +73,21 @@ mobs:register_mob("people:plunderercrossbow", {
 		die_loop = false,
 		die_rotate = true,
 	},
+
+	do_punch = function(self, hitter,
+					    time_from_last_punch,
+						tool_capabilities,
+						direction)
+
+		-- Prevent friendly fire from killing each other :)
+		local entity = hitter:get_luaentity()
+
+		if entity == "people:plunderercrossbow" then
+			return false
+		end
+
+		return true
+	end,
 })
 
 if not mobs.custom_spawn_people then
@@ -90,20 +110,20 @@ mobs:register_arrow("people:bolt", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
 	textures = {"bolt.png"},
-	velocity = 12,
+	velocity = 15,
 	drop = true,
 
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 		full_punch_interval=1.0,
-		damage_groups = {fleshy=13},
+		damage_groups = {fleshy=15},
                 }, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 		full_punch_interval=1.0,
-		damage_groups = {fleshy=13},
+		damage_groups = {fleshy=15},
                 }, nil)
 	end,
 

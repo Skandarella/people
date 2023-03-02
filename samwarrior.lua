@@ -7,10 +7,10 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:samwarrior", {
 	type = "npc",
 	passive = false,
-	damage = 8,
+	damage = 10,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
-	dogshoot_count_max = 12, -- shoot for 10 seconds
+	dogshoot_count_max = 12, -- shoot for 12 seconds
 	dogshoot_count2_max = 3, -- dogfight for 3 seconds
 	shoot_interval = 1.5,
 	arrow = "people:spearfly",
@@ -19,9 +19,9 @@ mobs:register_mob("people:samwarrior", {
 	attack_npcs = false,
 	owner_loyal = true,
 	pathfinding = true,
-	hp_min = 25,
-	hp_max = 125,
-	armor = 100,
+	hp_min = 100,
+	hp_max = 145,
+	armor = 80,
 	collisionbox = {-0.35,-1.0,-0.35, 0.35,0.8,0.35},
 	visual = "mesh",
 	mesh = "Warrior.b3d",
@@ -48,7 +48,7 @@ mobs:register_mob("people:samwarrior", {
 	follow = {"farming:baked_potato", "farming:sunflower_bread", "farming:pumpkin_bread", "farming:garlic_bread", "farming:tomato_soup", "pie:brpd_0", "farming:bread", "farming:bread_multigrain", "farming:spanish_potatoes", "farming:beetroot_soup", "farming:blueberry_pie", "farming:porridge", "farming:bibimbap", "farming:burger", "farming:paella", "farming:mac_and_cheese", "livingcaves:healingsoup", "farming:spaghetti", "animalworld:escargots", "farming:rhubarb_pie", "farming:potato_omlet", "farming:potato_salad"},
 	view_range = 12,
 	owner = "",
-	order = "follow",
+	order = "stand",
 	fear_height = 3,
         stay_near = {{"people:weaponstand", "people:villagerbed", "xdecor:empty_shelf", "xdecor:intemframe", "xdecor:lantern", "xdecor:candle", "xdecor:multishelf", "xdecor:tv", "default:bookshelf", "vessels:shelf", "livingcaves:root_lamp", "default:chest", "default:mese_post_light_pine_wood", "default:meselamp", "default:mese_post_light_pine_wood", "default:mese_post_light", "default:mese_post_light_acacia_wood", "default:mese_post_light_aspen_wood", "default:mese_post_light_junglewood", "animalworld:crocodilestool", "animalworld:elephantstool", "animalworld:bearstool", "animalworld:gnustool", "animalworld:hippostool", "animalworld:monitorstool", "animalworld:ivorychair", "animalworld:sealstool", "animalworld:yakstool", "animalworld:tigerstool", "animalworld:muskoxstool"}, 5},
 	animation = {
@@ -105,6 +105,21 @@ mobs:register_mob("people:samwarrior", {
 			end
 		end
 	end,
+
+	do_punch = function(self, hitter,
+					    time_from_last_punch,
+						tool_capabilities,
+						direction)
+
+		-- Prevent friendly fire from killing each other :)
+		local entity = hitter:get_luaentity()
+
+		if entity == "people:samwarrior" then
+			return false
+		end
+
+		return true
+	end,
 })
 
 
@@ -117,7 +132,7 @@ mobs:register_arrow("people:spearfly", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
 	textures = {"spearfly.png"},
-	velocity = 12,
+	velocity = 8,
 	drop = true,
 
 	hit_player = function(self, player)

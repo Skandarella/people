@@ -8,7 +8,7 @@ mobs:register_mob("people:pirate", {
         attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 9,
+        damage = 12,
 	hp_min = 35,
 	hp_max = 75,
 	armor = 100,
@@ -61,6 +61,23 @@ mobs:register_mob("people:pirate", {
 		die_rotate = true,
 	},
 	view_range = 15,
+
+do_punch = function(self, hitter,
+					    time_from_last_punch,
+						tool_capabilities,
+						direction)
+
+		-- Prevent friendly fire from killing each other :)
+		local entity = hitter:get_luaentity()
+
+		if entity == "people:pirate" then
+			return false
+		end
+
+		return true
+	end,
+
+
 
 	on_rightclick = function(self, clicker)
 
