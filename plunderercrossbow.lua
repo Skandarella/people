@@ -51,27 +51,22 @@ mobs:register_mob("people:plunderercrossbow", {
 	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
-	view_range = 35,
+	view_range = 20,
 	-- model animation
 	animation = {
-		speed_normal = 70,
-		speed_run = 100,
+		speed_normal = 70,		
+                speed_run = 100,
 		stand_speed = 50,
-		stand_start = 0,	
-		stand_end = 100,
-		walk_start = 100,
-		walk_end = 200,
-		run_start = 100,
-		run_end = 200,
-		shoot_start = 200,
-		shoot_end = 300,
-           speed_shoot = 55,
-		die_start = 200,
-		die_end = 300,
-		die_speed = 50,
-		die_loop = false,
-		die_rotate = true,
-	},
+		stand_start = 0,		
+                stand_end = 100,
+		walk_start = 100,		
+                walk_end = 200,
+		run_start = 100,		
+                run_end = 200,
+		shoot_start = 200,		
+                shoot_end = 300,
+                speed_shoot = 55,
+	}
 
 	do_punch = function(self, hitter,
 					    time_from_last_punch,
@@ -115,14 +110,14 @@ mobs:register_arrow("people:bolt", {
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 		full_punch_interval=1.0,
-		damage_groups = {fleshy=15},
+		damage_groups = {fleshy=8},
                 }, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 		full_punch_interval=1.0,
-		damage_groups = {fleshy=15},
+		damage_groups = {fleshy=8},
                 }, nil)
 	end,
 
