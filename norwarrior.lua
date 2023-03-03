@@ -7,7 +7,7 @@ local S = minetest.get_translator("people")
 mobs:register_mob("people:norwarrior", {
 	type = "npc",
 	passive = false,
-	damage = 10,
+	damage = 12,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
 	dogshoot_count_max = 12, -- shoot for 12 seconds

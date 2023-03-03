@@ -8,7 +8,7 @@ mobs:register_mob("people:pirate", {
         attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 12,
+	damage = 9,
 	hp_min = 35,
 	hp_max = 75,
 	armor = 100,
