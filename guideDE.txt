@@ -22,6 +22,14 @@ Lehrer: Goldbarren
 Krieger: Landwirtschaftliche Gerichte
 Dorfbewohner: Landwirtschaftliche Gerichte
 
+Um Gegenstände von ihnen zu erhalten, müssen Sie folgende Dinge mit ihnen handeln:
+
+Schmied: Goldbarren
+Bauer: Goldbarren
+Arzt: Goldklumpen
+Miner: Nahrungsmittel (z.B. Gekochte Gerichte aus dem Farming-Mod)
+Ausbilder: Emblem des Triumphs
+
 Nachdem Sie Ihren neuen Bewohner zufrieden gestellt haben, können Sie ihm oder ihr sagen, dass er(sie an Ort und Stelle bleiben soll. Wenn ein Feind deine Stadt überfällt und jemanden tötet,
 werden Sie ein Holzkreuz finden. Sie können es im Ofen verbrennen oder die Toten begraben, aber Vorsicht: Vergessen Sie nicht, die Bürger
 in Erde zu begraben, die der Leiche Gelegenheit zum Verrotten gibt, sonst gibt es des Nachts eine Überraschung...
